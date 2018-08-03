@@ -1,0 +1,21 @@
+@import "~antd/dist/antd.css";
+
+.home {
+  text-align: center;
+}
+
+.home-page-header {
+  background-color: #ff00ff;
+}
+
+.home-page-sider {
+  background-color: #ff0000;
+  width: 200px;
+  height: 300px;
+}
+
+.sider {
+  text-align: left;
+  padding: 10px 10px;
+  font-size: 16px;
+}
