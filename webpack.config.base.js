@@ -1,10 +1,7 @@
-const path = require('path');
-const webpack = require('webpack');
-
 module.exports = {
   devtool: 'source-map',
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
   },
   module: {
     rules: [
@@ -16,7 +13,18 @@ module.exports = {
       {
         test: /\.tsx?$/,
         enforce: 'pre',
-        use: ['source-map-loader', 'tslint-loader']
+        use: [{
+          loader: "tslint-loader",
+          options: {
+            configFile: "./tslint.json",
+            tsConfigFile: "./tsconfig.json"
+          }
+        }]
+      },
+      {
+        test: /\.js?$/,
+        enforce: 'pre',
+        use: 'source-map-loader'
       }
     ]
   }
