@@ -16,7 +16,6 @@ export default class HomePage extends React.Component {
         <Layout>
           <HomePageSider/>
           <HomePageContent/>
-          <HomePageSider/>
         </Layout>
       </div>
     )

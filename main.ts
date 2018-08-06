@@ -1,5 +1,6 @@
 // Modules to control application life and create native browser window
-import {app, BrowserWindow} from 'electron'
+import {app, BrowserWindow, Menu} from 'electron'
+import MenuItemConstructorOptions = Electron.MenuItemConstructorOptions;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -33,6 +34,82 @@ function createWindow() {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
+  // 菜单
+  createMenu();
+}
+
+function createMenu() {
+  const name = app.getName();
+  const template = [
+    {
+      label: name,
+      submenu: [
+        {
+          label: 'About ' + name,
+          role: 'about'
+        },
+        {
+          accelerator: 'CmdOrCtrl+Q',
+          click: () => { app.quit() },
+          label: 'Quit'
+        }
+      ]
+    },
+    {
+      label: 'Edit',
+      submenu: [
+        {
+          accelerator: 'CmdOrCtrl+Z',
+          label: 'Undo',
+          role: 'undo'
+        },
+        {
+          accelerator: 'Shift+CmdOrCtrl+Z',
+          label: 'Redo',
+          role: 'redo'
+        }
+      ]
+    },
+    {
+      label: 'View',
+      submenu: [
+        {
+          accelerator: 'CmdOrCtrl+R',
+          click: (item, focusedWindow) => {
+            if (focusedWindow) {
+              focusedWindow.reload();
+            }
+          },
+          label: 'Reload'
+        }
+      ]
+    },
+    {
+      label: 'Window',
+      role: 'window',
+      submenu: [
+        {
+          accelerator: 'CmdOrCtrl+M',
+          label: 'Minimize',
+          role: 'minimize'
+        }
+      ]
+    },
+    {
+      label: 'Help',
+      role: 'help',
+      submenu: [
+        {
+          click: () => { require('electron').shell.openExternal('http://electron.atom.io') },
+          label: 'Learn More'
+        },
+      ]
+    },
+  ];
+
+  const menu = Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(menu);
 }
 
 app.on('ready', () => {
