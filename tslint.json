@@ -6,6 +6,7 @@
   ],
   "linterOptins": {
     "exclude": [
+      "dist/*.js",
       "node_modules/**/*.ts"
     ]
   }
