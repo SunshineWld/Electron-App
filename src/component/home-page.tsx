@@ -5,6 +5,7 @@ import HomePageSider from './home-page-sider';
 
 import * as React from 'react';
 import './home-page.css';
+import './react-contextmenu.css';
 
 export default class HomePage extends React.Component {
   public render() {

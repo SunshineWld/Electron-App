@@ -20,6 +20,7 @@
     "@types/react-dom": "^16.0.6",
     "antd": "^3.7.3",
     "react": "^16.4.1",
+    "react-contextmenu": "^2.9.3",
     "react-dom": "^16.4.1"
   },
   "devDependencies": {

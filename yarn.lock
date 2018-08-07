@@ -4218,6 +4218,13 @@ rc@^1.0.1, rc@^1.1.2, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-contextmenu@^2.9.3:
+  version "2.9.3"
+  resolved "https://registry.yarnpkg.com/react-contextmenu/-/react-contextmenu-2.9.3.tgz#f6de2e0770445c60ed14f4b37af3419e32866ba1"
+  dependencies:
+    classnames "^2.2.5"
+    object-assign "^4.1.0"
+
 react-dom@^16.4.1:
   version "16.4.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.4.1.tgz#7f8b0223b3a5fbe205116c56deb85de32685dad6"

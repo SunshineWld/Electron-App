@@ -11,11 +11,15 @@
 .home-page-sider {
   background-color: #ff0000;
   width: 200px;
-  height: 300px;
+  height: 280px;
 }
 
-.sider {
-  text-align: left;
-  padding: 10px 10px;
-  font-size: 16px;
+.contextmenu-trigger {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 16px;
+  border-radius: 2px;
+  margin: 8px;
+  margin-top: 50px;
 }
