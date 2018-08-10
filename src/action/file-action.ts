@@ -1,39 +1,37 @@
 import { dialog, MenuItem } from 'electron';
+import * as fs from "fs";
 import ActionGroup from "./action-group";
+
 
 class FileAction extends ActionGroup {
 
   public createMenu(): MenuItem | null {
+
     const item = new MenuItem({
       label: 'File',
       submenu: [
         {
           accelerator: 'CmdOrCtrl+N',
           click: this.fileNewHandler,
-          label: 'New',
-          role: 'new'
+          label: 'New'
         },
         {
           accelerator: 'CmdOrCtrl+O',
           click: this.fileOpenHandler,
-          label: 'Open',
-          role: 'open'
+          label: 'Open'
         },
         {
           accelerator: 'CmdOrCtrl+S',
           click: this.fileSaveHandler,
-          label: 'Save',
-          role: 'save'
+          label: 'Save'
         },
         {
           accelerator: 'CmdOrCtrl+W',
           click: this.fileCloseHandler,
-          label: 'Close',
-          role: 'close'
+          label: 'Close'
         }
       ]
     });
-
     return item;
   }
 
@@ -44,8 +42,16 @@ class FileAction extends ActionGroup {
   }
 
   private fileOpenHandler(): void {
-    const fileName = dialog.showOpenDialog({title: 'open file', defaultPath: '.', filters: [{name:'*', extensions:['js']}]});
+    const fileName = dialog.showOpenDialog({title: 'open file', defaultPath: '.', filters: [{name:'*', extensions:['*']}]});
     console.log('file-open ' + fileName);
+    fs.readFile(fileName[0], 'utf-8', ((err, data) => {
+      if (err) {
+        console.log(err);
+        throw err;
+      } else {
+        console.log(data);
+      }
+    }))
   }
 
   private fileSaveHandler(): void {
