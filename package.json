@@ -5,7 +5,7 @@
   "main": "./dist/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --open --config webpack.config.dev.js",
+    "dev": "npm run build && webpack-dev-server --open --config webpack.config.dev.js",
     "build-main": "webpack --config webpack.config.electron.main.js",
     "build-render": "webpack --config webpack.config.electron.render.js",
     "build": "npm run build-main && npm run build-render",
@@ -19,6 +19,7 @@
     "@types/react": "^16.4.7",
     "@types/react-dom": "^16.0.6",
     "antd": "^3.7.3",
+    "events": "^3.0.0",
     "react": "^16.4.1",
     "react-contextmenu": "^2.9.3",
     "react-dom": "^16.4.1"

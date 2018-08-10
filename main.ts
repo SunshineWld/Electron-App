@@ -1,6 +1,6 @@
 // Modules to control application life and create native browser window
 import {app, BrowserWindow, Menu} from 'electron'
-import MenuItemConstructorOptions = Electron.MenuItemConstructorOptions;
+import {ActionManager} from "./src/action/action-manager";
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -36,7 +36,9 @@ function createWindow() {
   })
 
   // 菜单
-  createMenu();
+  // createMenu();
+  const actionManager = new ActionManager();
+  actionManager.setup();
 }
 
 function createMenu() {
